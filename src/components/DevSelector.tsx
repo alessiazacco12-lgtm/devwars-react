@@ -49,6 +49,7 @@ function DevSelector({developers,selectedDevA,selectedDevB,activeSelection,setAc
                     const isDevB = dev.id === selectedDevB.id;
                     // Variabile che conterrà le classi della miniatura selezionata.
                     let selectedClass = "";
+                    
                 // Se è Dev A aggiunge la classe selected-a.
                 if (isDevA){
                     selectedClass = "selected-a";
