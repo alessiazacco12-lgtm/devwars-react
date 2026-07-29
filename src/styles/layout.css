@@ -1,0 +1,65 @@
+/* CONTENITORE PRINCIPALE */
+.main-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 0 55px;
+}
+/* INTESTAZIONE PRINCIPALE */
+.main-header {
+    margin-bottom: 28px;
+    text-align: center;
+}
+.main-header h1 {
+    margin-bottom: 10px;
+    color: #f73566;
+    font-size: 42px;
+    letter-spacing: 2px;
+}
+.main-header h1 span {
+    color: #18d4ef;
+}
+.main-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #9fb0c5;
+    font-size: 14px;
+    line-height: 1.6;
+}
+/* ARENA DEGLI SVILUPPATORI */
+.dev-arena {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        70px
+        minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+/* SCRITTA VS */
+.versus {
+    color: #ffbf19;
+    font-size: 31px;
+    font-weight: bold;
+    text-align: center;
+}
+/* RESPONSIVE TABLET */
+@media (max-width: 900px) {
+    .dev-arena {
+        grid-template-columns: 1fr;
+    }
+    .versus {
+        padding: 5px 0;
+    }
+}
+/* RESPONSIVE SMARTPHONE */
+@media (max-width: 600px) {
+    .main-container {
+        width: 94%;
+        padding-top: 25px;
+    }
+    .main-header h1 {
+        font-size: 34px;
+    }
+}

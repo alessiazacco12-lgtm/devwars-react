@@ -1,0 +1,66 @@
+/* RISULTATI DEL CONFRONTO */
+.comparison-results {
+    padding: 28px;
+    background-color: #111c30;
+    border: 1px solid #293953;
+    border-radius: 16px;
+}
+/* TITOLO DEI RISULTATI */
+.comparison-results h2 {
+    margin-bottom: 22px;
+    color: #ffbf19;
+    text-align: center;
+    font-size: 22px;
+}
+/* GRIGLIA DEI RISULTATI */
+.results-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+/* SINGOLO RISULTATO */
+.result-item {
+    min-width: 0;
+    padding: 18px 20px;
+    background-color: #1a2740;
+    border-left: 5px solid;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+/* COLORI DEI RISULTATI */
+.result-purple {
+    border-left-color: #8b5cf6;
+}
+.result-green {
+    border-left-color: lightgreen;
+}
+.result-yellow {
+    border-left-color: #fbbf24;
+    background-color: #2a2f38;
+}
+/* RISULTATO FINALE */
+.final-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-weight: bold;
+}
+/* NOME DEL VINCITORE */
+.winner-name {
+    font-weight: bold;
+}
+.winner-a {
+    color: #22d3ee;
+}
+.winner-b {
+    color: #ff4d7a;
+}
+/* RESPONSIVE SMARTPHONE */
+@media (max-width: 600px) {
+    .results-list {
+        grid-template-columns: 1fr;
+    }
+    .final-result {
+        grid-column: auto;
+    }
+}

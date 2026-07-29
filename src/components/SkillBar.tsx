@@ -1,10 +1,12 @@
 // 1. IMPORTAZIONI -- Importo il tipo Skill dal file types.ts.
 import type {Skill} from "../types";
+
+// -----------------------------------------------------------------------------------------------------------------------
 // 2. TIPO DELLE PROPS -- Definisco i dati ricevuti dal componente SkillBar.
 type SkillBarProps ={
     skill: Skill;
 };
-
+// -----------------------------------------------------------------------------------------------------------------------
 // 3. COMPONENTE SKILL BAR -- Mostro una singola competenza con: nome, tipologia, valore numerico e barra grafica.
 function SkillBar ({skill} : SkillBarProps){
     return(
@@ -25,7 +27,7 @@ function SkillBar ({skill} : SkillBarProps){
     <div className = "skill-bar">
 
     {/* Parte colorata della barra.*/}
-    <div className = {"skill-progress" + skill.type }
+    <div className = {"skill-progress " + skill.type }
     // La larghezza della barra dipende dal valore della competenza. 
     style= {{width: skill.value + "%" }}>
     </div>
@@ -33,7 +35,7 @@ function SkillBar ({skill} : SkillBarProps){
     </article>
     );
 }
-
+// -----------------------------------------------------------------------------------------------------------------------
 // 4. ESPORTAZIONE -- Esporto il componente per poi utilizzarlo in DevCard.
 export default SkillBar;
     
