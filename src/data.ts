@@ -60,11 +60,7 @@ const developers : Dev [] = [
     ]
 },
 {id: 6,
-    imageUrl: "https://i.pravatar.cc/600?img=49",
-    firstname: "Elena",
-    lastname:  "Marini",
-    birthDate: "1996-08-15",
-    gender: "unknown",
+    imageUrl: "https://i.pravatar.cc/600?img=49", firstname: "Elena", lastname:  "Marini", birthDate: "1996-08-15", gender: "unknown",
     skills:[
         {label: "HTML/CSS", type: "front-end", value: 85},
         {label: "JavaScript", type: "front-end", value: 80},
