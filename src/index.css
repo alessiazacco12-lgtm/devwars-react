@@ -6,9 +6,7 @@
 }
 
 /* PAGINA */
-html,
-body,
-#root {
+html, body, #root {
     width: 100%;
     min-height: 100%;
 }
@@ -38,8 +36,6 @@ body {
 }
 
 /* ELEMENTI DEL FORM */
-button,
-select,
-input {
+button,select,input {
     font-family: Arial, Helvetica, sans-serif;
 }
