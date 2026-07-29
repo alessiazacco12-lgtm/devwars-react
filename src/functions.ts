@@ -25,7 +25,6 @@ function getGenderText(gender: Gender): string {
             return "Non specificato";
     }
 }
-
 // 5. RICERCA DI UNA COMPETENZA -- La funzione cerca una competenza attraverso il suo nome.
 function getSkillByLabel(dev: Dev, skillLabel: string): Skill | undefined {
     const skill = dev.skills.find((skill) => {
