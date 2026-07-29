@@ -1,5 +1,6 @@
 // 1. IMPORTAZIONI -- Importo il tipo Dev dal file types.ts.
 import type {Dev} from "./types";
+// -----------------------------------------------------------------------------------------------------------------------
 
 // 2. ARRAY DEGLI SVILUPPATORI -- Creo un array contenente i 6 sviluppatori.
 const developers : Dev [] = [
@@ -75,5 +76,6 @@ const developers : Dev [] = [
 }
 ];
 
+// -----------------------------------------------------------------------------------------------------------------------
 // 3. ESPORTAZIONE --
 export {developers};
