@@ -91,13 +91,13 @@ function createResultItem(
                 if (comparison === "A"){
                     results.push(
                         createResultItem(
-                            "Se cerchi il migliore in" + skillA.label + ", scegli", getFullname(devA),"purple","A"));}
+                            "Se cerchi il migliore in " + skillA.label + ", scegli ", getFullname(devA),"purple","A"));}
                             if (comparison === "B"){
                                 results.push (
-                                    createResultItem("Se cerchi il migliore in" + skillA.label + ", scegli", getFullname(devB),"purple","B"));}
+                                    createResultItem("Se cerchi il migliore in " + skillA.label + ", scegli ", getFullname(devB),"purple","B"));}
                             if (comparison === "equal"){
                                 results.push (
-                                    createResultItem("In" + skillA.label + "i due sviluppatori sono alla pari.","", "purple", "equal"));}}
+                                    createResultItem("In " + skillA.label + " i due sviluppatori sono alla pari.","", "purple", "equal"));}}
                                 });
 
     // CONFRONTO FRONT-END
@@ -106,10 +106,10 @@ function createResultItem(
     const frontEndComparison= compareValues(frontEndA,frontEndB);
     if (frontEndComparison === "A") {
         results.push(
-            createResultItem("Per il front-end, scegli", getFullname(devA), "green", "A"));}
+            createResultItem("Per il front-end, scegli ", getFullname(devA), "green", "A"));}
     if (frontEndComparison === "B") {
         results.push(
-            createResultItem("Per il front-end, scegli", getFullname(devB), "green", "B"));}
+            createResultItem("Per il front-end, scegli ", getFullname(devB), "green", "B"));}
     if (frontEndComparison === "equal") {
         results.push(
             createResultItem(
@@ -121,10 +121,10 @@ const backEndB = getAverageByType(devB,"back-end");
 const backEndComparison = compareValues(backEndA,backEndB);
 if (backEndComparison ==="A"){
     results.push(
-        createResultItem("Per il back-end,scegli",getFullname(devA),"green", "A"));}
+        createResultItem("Per il back-end, scegli ",getFullname(devA),"green", "A"));}
 if (backEndComparison ==="B"){
     results.push(
-        createResultItem("Per il back-end,scegli",getFullname(devB),"green", "B"));}
+        createResultItem("Per il back-end, scegli ",getFullname(devB),"green", "B"));}
 if (backEndComparison ==="equal"){
     results.push(
         createResultItem(
@@ -136,10 +136,10 @@ const overallB = getOverallAverage(devB);
 const overallComparison =compareValues(overallA,overallB);
 if (overallComparison === "A"){
     results.push(
-        createResultItem("Complessivamente,scegli",getFullname(devA), "yellow", "A", true));}
+        createResultItem("Complessivamente, scegli ",getFullname(devA), "yellow", "A", true));}
 if (overallComparison === "B"){
     results.push(
-        createResultItem("Complessivamente,scegli",getFullname(devB), "yellow", "B", true));}  
+        createResultItem("Complessivamente, scegli ",getFullname(devB), "yellow", "B", true));}  
 if (overallComparison === "equal"){
     results.push(
         createResultItem("Complessivamente, i due sviluppatori sono alla pari.","", "yellow", "equal", true));}
