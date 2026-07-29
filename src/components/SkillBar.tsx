@@ -25,7 +25,7 @@ function SkillBar ({skill} : SkillBarProps){
     <div className = "skill-bar">
 
     {/* Parte colorata della barra.*/}
-    <div className = {"skill-progress" + skill.type }
+    <div className = {"skill-progress " + skill.type }
     // La larghezza della barra dipende dal valore della competenza. 
     style= {{width: skill.value + "%" }}>
     </div>
