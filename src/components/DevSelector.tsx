@@ -51,12 +51,13 @@ function DevSelector({developers,selectedDevA,selectedDevB,activeSelection,setAc
                     let selectedClass = "";
                     
                 // Se è Dev A aggiunge la classe selected-a.
-                if (isDevA){
-                    selectedClass = "selected-a";
-                }
+                if (isDevA) {
+                    selectedClass = " selected-a";
+}
                     // Se è Dev B aggiunge la classe selected-b.
-                if (isDevB){
-                    selectedClass += "selected-b";}
+                if (isDevB) {
+                    selectedClass += " selected-b";
+}
                 // Crea una miniatura per ogni sviluppatore.
                 return(
                     <article 
