@@ -1,19 +1,17 @@
 // 1. IMPORTAZIONI -- Importo i tipi necessari dal file types.ts.
 import type { Dev, Gender, Skill, SkillType, ComparisonValue, ResultTone, ComparisonResultItem } from "./types";
-
+// -----------------------------------------------------------------------------------------------------------------------
 // 2. NOME COMPLETO -- La funzione riceve uno sviluppatore e restituisce il nome e il cognome uniti. 
 function getFullname(dev: Dev): string {
     return dev.firstname + " " + dev.lastname;
 }
-
+// -----------------------------------------------------------------------------------------------------------------------
 // 3. FORMATTAZIONE DELLA DATA -- La funzione riceve una data nel formato AA/MM/GG e la restituisce nel formato GG/MM/AA.
 function formatBirthDate(birthDate: string): string {
-    const dateParts = birthDate.split("-");
-    const year = dateParts[0];
-    const month = dateParts[1];
-    const day = dateParts[2];
+    const [year, month, day] = birthDate.split("-");
     return day + "/" + month + "/" + year;
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 4. TESTO DEL GENERE -- La funzione riceve il valore del genere e restituisce il testo completo da mostrare. 
 function getGenderText(gender: Gender): string {
     switch (gender) {
@@ -25,6 +23,7 @@ function getGenderText(gender: Gender): string {
             return "Non specificato";
     }
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 5. RICERCA DI UNA COMPETENZA -- La funzione cerca una competenza attraverso il suo nome.
 function getSkillByLabel(dev: Dev, skillLabel: string): Skill | undefined {
     const skill = dev.skills.find((skill) => {
@@ -32,6 +31,7 @@ function getSkillByLabel(dev: Dev, skillLabel: string): Skill | undefined {
     });
     return skill;
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 6. MEDIA PER TIPOLOGIA -- La funzione calcola la media delle competenze front-end oppure back-end. 
 function getAverageByType(dev: Dev, skillType: SkillType): number {
     const selectedSkills = dev.skills.filter((skill) => {
@@ -46,6 +46,7 @@ function getAverageByType(dev: Dev, skillType: SkillType): number {
     });
     return total / selectedSkills.length;
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 7. MEDIA COMPLESSIVA -- La funzione calcola la media di tutte le competenze dello sviluppatore. 
 function getOverallAverage(dev: Dev): number {
     if (dev.skills.length === 0) {
@@ -57,6 +58,7 @@ function getOverallAverage(dev: Dev): number {
     });
     return total / dev.skills.length;
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 8. CONFRONTO TRA DUE VALORI -- Confronto due valori e restituisco A se è maggiore il primo e B se è maggiore il secondo ed equal se sono uguali.
 function compareValues(valueA: number, valueB: number): ComparisonValue {
     if (valueA > valueB) {
@@ -67,13 +69,14 @@ function compareValues(valueA: number, valueB: number): ComparisonValue {
     }
     return "equal";
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 9. CREAZIONE DI UN RISULTATO -- Creo un oggetto contenente tutte le info necessarie per mostrare una frase del confronto.
 function createResultItem(text: string, highlightedName: string, tone: ResultTone, winner: ComparisonValue, fullWidth: boolean = false): ComparisonResultItem {
     return {
         text, highlightedName, tone, winner, fullWidth
     };
 }
-
+// -----------------------------------------------------------------------------------------------------------------------
 // 10. RISULTATI DEL CONFRONTO -- Confronto tutte le competenze condivise, le medie front-end back-end e complx.
 function getComparisonResults(devA: Dev, devB: Dev): ComparisonResultItem[] {
     const results: ComparisonResultItem[] = [];
@@ -151,5 +154,6 @@ function getComparisonResults(devA: Dev, devB: Dev): ComparisonResultItem[] {
     }
     return results;
 }
+// -----------------------------------------------------------------------------------------------------------------------
 // 11. ESPORTAZIONI -- Esporto le funzioni che poi utilizzerò in altri file.
 export { getFullname, formatBirthDate, getGenderText, getSkillByLabel, getAverageByType, getOverallAverage, compareValues, getComparisonResults };
