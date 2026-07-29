@@ -113,8 +113,7 @@ function getComparisonResults(devA: Dev, devB: Dev): ComparisonResultItem[] {
     }
     if (frontEndComparison === "equal") {
         results.push(
-            createResultItem(
-                "Nel front-end i due sviluppatori sono alla pari.", "", "green", "equal"));
+            createResultItem("Nel front-end i due sviluppatori sono alla pari.", "", "green", "equal"));
     }
 
     // CONFRONTO BACK-END --
@@ -131,8 +130,7 @@ function getComparisonResults(devA: Dev, devB: Dev): ComparisonResultItem[] {
     }
     if (backEndComparison === "equal") {
         results.push(
-            createResultItem(
-                "Nel back-end i due sviluppatori sono alla pari.", "", "green", "equal"));
+            createResultItem("Nel back-end i due sviluppatori sono alla pari.", "", "green", "equal"));
     }
 
     // CONFRONTO COMPLESSIVO --
