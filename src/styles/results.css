@@ -55,12 +55,3 @@
 .winner-b {
     color: #ff4d7a;
 }
-/* RESPONSIVE SMARTPHONE */
-@media (max-width: 600px) {
-    .results-list {
-        grid-template-columns: 1fr;
-    }
-    .final-result {
-        grid-column: auto;
-    }
-}

@@ -149,13 +149,3 @@
 .skill-progress.back-end {
     background-color: #19c875;
 }
-/* RESPONSIVE SMARTPHONE */
-@media (max-width: 600px) {
-    .dev-card-header {
-        height: 300px;
-    }
-
-    .averages {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}

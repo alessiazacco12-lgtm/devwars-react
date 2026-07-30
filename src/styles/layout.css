@@ -44,22 +44,3 @@
     font-weight: bold;
     text-align: center;
 }
-/* RESPONSIVE TABLET */
-@media (max-width: 900px) {
-    .dev-arena {
-        grid-template-columns: 1fr;
-    }
-    .versus {
-        padding: 5px 0;
-    }
-}
-/* RESPONSIVE SMARTPHONE */
-@media (max-width: 600px) {
-    .main-container {
-        width: 94%;
-        padding-top: 25px;
-    }
-    .main-header h1 {
-        font-size: 34px;
-    }
-}
