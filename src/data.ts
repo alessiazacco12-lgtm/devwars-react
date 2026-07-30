@@ -2,7 +2,7 @@
 import type {Dev} from "./types";
 // -----------------------------------------------------------------------------------------------------------------------
 
-// 2. ARRAY DEGLI SVILUPPATORI -- Creo un array contenente i 6 sviluppatori.
+// 2. ARRAY DEGLI SVILUPPATORI -- Creo un array contenente i 6 sviluppatori. Ogni elemento rispetta il type Dev e deve contenre: id, img, fn, ln, birthDate, gender e skills.
 const developers : Dev [] = [
     {id: 1,
     imageUrl: "https://i.pravatar.cc/600?img=12",firstname: "Luca", lastname:  "Ferrari", birthDate: "1992-04-18", gender: "m",
@@ -73,5 +73,5 @@ const developers : Dev [] = [
 ];
 
 // -----------------------------------------------------------------------------------------------------------------------
-// 3. ESPORTAZIONE --
+// 3. ESPORTAZIONE -- Esporto array developers per poterlo importare in App.tsx e utilizzarlo per mostrare e selez. gli sviluppatori.
 export {developers};
