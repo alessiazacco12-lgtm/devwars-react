@@ -1,16 +1,17 @@
-/* SELETTORE DEGLI SVILUPPATORI */
+/* SELETTORE DEGLI SVILUPPATORI: pulsanti per scegliere il lato A o B e la griglia con le miniature dei sei sviluppatori. */
 .dev-selector {
     margin-bottom: 32px;
 }
-/* PULSANTI DI SELEZIONE */
+/* PULSANTI DI SELEZIONE: pulsanti per scegliere se si sta modificando Dev A o Dev B. */
 .selection-buttons {
     display: flex;
     justify-content: center;
     gap: 14px;
     margin-bottom: 20px;
 }
+/* 1 PULSANTE DI SELEZIONE */
 .selection-button {
-    padding: 12px 24px;
+    padding: 12px 24px; /* Spazio interno verticale e orizzontale. */
     background-color: #121d31;
     color: white;
     border: 1px solid #3b4e6b;
@@ -19,28 +20,32 @@
     cursor: pointer;
     transition: 0.2s;
 }
+/* EFFETTO HOVER DEL PULSANTE: Quando il mouse passa sopra il pulsante questo si sposta un pò verso l'alto. */
 .selection-button:hover {
     transform: translateY(-2px);
 }
+/* PULSANTE ATTIVO DEL DEV A --Questa classe viene aggiunta quando l'utente sta selezionando lo sviluppatore A. */
 .active-a {
     color: #19d8ef;
     border-color: #19d8ef;
 }
+/* PULSANTE ATTIVO DEL DEV B -- Questa classe viene aggiunta quando l'utente sta selezionando lo sviluppatore B. */
 .active-b {
     color: #f73566;
     border-color: #f73566;
 }
-/* GRIGLIA DELLE MINIATURE */
+/* GRIGLIA DELLE MINIATURE con i 6 dvlp. */
 .developers-grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 12px;
-    padding: 18px;
+    grid-template-columns: repeat(6, minmax(0, 1fr)); /* Creo sei colonne della stessa larghezza.
+    Ogni miniatura occupa una parte uguale dello spazio disponibile. */
+    gap: 12px; /* Spazio tra le miniature. */
+    padding: 18px;  /* Spazio interno attorno alla griglia. */
     background-color: #111c30;
     border: 1px solid #293953;
     border-radius: 15px;
 }
-/* SINGOLA MINIATURA */
+/* SINGOLA MINIATURA: rapp uno sviluppatore selezionabile.*/
 .developer-thumbnail {
     min-width: 0;
     position: relative;
@@ -56,19 +61,20 @@
     transform: translateY(-4px);
 }
 .developer-thumbnail img {
-    width: 100%;
-    max-width: 100%;
-    display: block;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    width: 100%; /* Occupa tutta la larghezza della miniatura. */
+    max-width: 100%;  /* Impedisce all'immagine di superare il contenitore. */
+    display: block; /* Elimina lo spazio predefinito sotto l'immagine. */
+    aspect-ratio: 1 / 1;  /* Mantiene l'immagine quadrata: larghezza e altezza hanno lo stesso rapporto. */
+    object-fit: cover;    /* Riempie tutto il quadrato. Se nec., una parte dell'img viene tagliata. */
     border-radius: 7px;
 }
+/* NOME DELLO SVILUPPATORE */
 .developer-thumbnail p {
     margin-top: 7px;
     overflow: hidden;
     font-size: 11px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    text-overflow: ellipsis; /* Mostra i tre puntini quando il testo è troppo lungo. */
+    white-space: nowrap; /* Impedisce al nome di andare su più righe. */
 }
 /* MINIATURE SELEZIONATE */
 .selected-a {
@@ -77,24 +83,27 @@
 .selected-b {
     border-color: #f73566;
 }
-/* BADGE A E B */
+/* BADGE A E B: Mostra una lettera dentro un piccolo cerchio
+nell'angolo in alto a destra della miniatura. */
 .thumbnail-badge {
     width: 24px;
     height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: absolute; /* Posiziona il badge sopra la miniatura. */
+    top: 10px; /* Dist. dal bordo su. */
+    right: 10px; /* Dist. dal bordo dX. */
     color: white;
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: bold;
+    border-radius: 50%; /* Trasforma il badge in un cerchio. */
+    font-size: 11px; /* Dimensione della lettera. */
+    font-weight: bold; /* Mostra la lettera in grass. */
 }
+/* BADGE DEL DEV A */
 .badge-a {
     background-color: #19d8ef;
 }
+/* BADGE DEL DEV B */
 .badge-b {
     background-color: #f73566;
 }
