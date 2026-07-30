@@ -7,10 +7,10 @@ import { getFullname } from "../functions";
 // -----------------------------------------------------------------------------------------------------------------------
 // 2. TIPO DELLE PROPS -- Definisco i dati ricevuti dal componente DevSelector.
 type DevSelectorProps = {
-    developers: Dev[];
-    selectedDevA: Dev;
-    selectedDevB: Dev;
-    activeSelection: SelectionSide;
+    developers: Dev[]; // Elenco degli sviluppatori.
+    selectedDevA: Dev; // Sviluppatore selezionato come A.
+    selectedDevB: Dev; // Sviluppatore selezionato come B.
+    activeSelection: SelectionSide; // Lato attualmente attivo.
 
     // Funzione che indica se stiamo scegliendo Dev A  oppure Dev B. 
     setActiveSelection: (side: SelectionSide) => void;
@@ -26,6 +26,7 @@ function DevSelector({ developers, selectedDevA, selectedDevB, activeSelection, 
         <section className="dev-selector">
             {/* Pulsanti per scegliere se modificare Dev A oppure Dev B. */}
             <div className="selection-buttons">
+
                 {/*Pulsante per selezionare Dev A.  */}
                 <button className={
                     activeSelection === "A" ? "selection-button active-a" : "selection-button"}
@@ -40,9 +41,10 @@ function DevSelector({ developers, selectedDevA, selectedDevB, activeSelection, 
                         setActiveSelection("B");
                     }}>Seleziona Dev B</button>
             </div>
+
             {/* Contiene le miniature dei 6 sviluppatori. */}
             <section className="developers-grid">
-                {/* Scorre l'array degli sviluppatori. */}
+                {/* Scorro tutti gli sviluppatori. */}
                 {developers.map((dev) => {
                     // Controllo se lo sviluppatore è selezionato come Dev A.
                     const isDevA = dev.id === selectedDevA.id;
