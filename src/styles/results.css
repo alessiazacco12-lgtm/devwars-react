@@ -1,24 +1,25 @@
-/* RISULTATI DEL CONFRONTO */
+/* RISULTATI DEL CONFRONTO: parliamo della sez finale dove si mostrano i risultati del confronto tra Dev A e Dev B. */
 .comparison-results {
     padding: 28px;
     background-color: #111c30;
-    border: 1px solid #293953;
+    border: 1px solid #293953; /* Bordo sottile attorno al contenitore. */
     border-radius: 16px;
 }
-/* TITOLO DEI RISULTATI */
+/* TITOLO DEI RISULTATI: titolo mostrato sopra l'elenco dei confronti. */
 .comparison-results h2 {
     margin-bottom: 22px;
     color: #ffbf19;
-    text-align: center;
-    font-size: 22px;
+    text-align: center;  /* Centra il titolo orizzontalmente. */
+    font-size: 22px; /* Dimensione del testo. */
 }
-/* GRIGLIA DEI RISULTATI */
+/* GRIGLIA DEI RISULTATI: dispongo i risultati su due colonne della stessa larghezza. */
 .results-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-/* SINGOLO RISULTATO */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Creo due colonne uguali. Ogni colonna occupa una parte dello spazio disponibile
+    e può restringersi fino a 0 senza uscire dal contenitore. */
+    gap: 12px; /* Spazio tra righe e colonne della griglia. */
+} 
+/* SINGOLO RISULTATO: singolo messaggio del confronto. */
 .result-item {
     min-width: 0;
     padding: 18px 20px;
@@ -26,32 +27,37 @@
     border-left: 5px solid;
     border-radius: 7px;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.5; /* Aumenta lo spazio tra le righe. */
 }
-/* COLORI DEI RISULTATI */
+/* COLORI DEI RISULTATI: Ogni colore distingue una diversa tipologia di confronto. */ 
+/* Viola: utilizzato per il confronto delle singole competenze. */
 .result-purple {
     border-left-color: #8b5cf6;
 }
+/* Verde: utilizzato per le medie front-end e back-end. */
 .result-green {
     border-left-color: lightgreen;
 }
+/* Giallo: utilizzato per il risultato complessivo. */
 .result-yellow {
     border-left-color: #fbbf24;
     background-color: #2a2f38;
 }
-/* RISULTATO FINALE */
+/* RISULTATO FINALE: Il risultato complx occupa tutta la larghezza della griglia ovvero tutte e due le colonne. */
 .final-result {
-    grid-column: 1 / -1;
-    text-align: center;
+    grid-column: 1 / -1; /* Parte dalla prima colonna e arriva fino all'ultima. */
+    text-align: center; /* Centra il testo. */
     font-weight: bold;
 }
 /* NOME DEL VINCITORE */
 .winner-name {
     font-weight: bold;
 }
+/* COLORE DEL VINCITORE DEV A */
 .winner-a {
     color: #22d3ee;
 }
+/* COLORE DEL VINCITORE DEV B */
 .winner-b {
     color: #ff4d7a;
 }
