@@ -1,43 +1,46 @@
 /* CONTENITORE PRINCIPALE */
 .main-container {
     width: 92%;
-    max-width: 1200px;
+    max-width: 1200px; /* Impedisce al contenitore di diventare troppo largo
+    sugli schermi di grandi dimensioni. */
     margin: 0 auto;
     padding: 35px 0 55px;
 }
-/* INTESTAZIONE PRINCIPALE */
+/* INTESTAZIONE PRINCIPALE: contiene il titolo DEVWARS e la descr iniz. */
 .main-header {
     margin-bottom: 28px;
     text-align: center;
 }
 .main-header h1 {
-    margin-bottom: 10px;
-    color: #f73566;
-    font-size: 42px;
-    letter-spacing: 2px;
+    margin-bottom: 10px; /* Spazio tra titolo e descrizione. */
+    color: #f73566; /* Colore rosa applicato alla parola WARS. */
+    font-size: 42px; /* Dimensione del titolo. */
+    letter-spacing: 2px; /* Aumenta lo spazio tra le lettere. */
 }
+/* PAROLA DEV. Lo span aiuta a colorare DEV diversamente da WARS */
 .main-header h1 span {
-    color: #18d4ef;
+    color: #18d4ef; /* Colore azzurro della parola DEV. */
 }
+/* DESCR SOTTO IL TITOLO */
 .main-header p {
     max-width: 650px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centra il paragrafo orizzontalmente. */
     color: #9fb0c5;
     font-size: 14px;
     line-height: 1.6;
 }
-/* ARENA DEGLI SVILUPPATORI */
+/* ARENA DEGLI SVILUPPATORI: contiene la card del Dev A, la scritta VS e la card del dev B. */
 .dev-arena {
-    display: grid;
+    display: grid; /* Utilizzo una griglia per disporre i tre elementi. */
     grid-template-columns:
         minmax(0, 1fr)
         70px
-        minmax(0, 1fr);
+        minmax(0, 1fr);  /* 1fr 70px 1fr. */
     align-items: center;
     gap: 18px;
     margin-bottom: 30px;
 }
-/* SCRITTA VS */
+/* SCRITTA VS: questa appare tra le due card dei devs. */
 .versus {
     color: #ffbf19;
     font-size: 31px;
