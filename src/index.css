@@ -7,32 +7,34 @@
 
 /* PAGINA */
 html, body, #root {
-    width: 100%;
-    min-height: 100%;
+    width: 100%; /* Occupa tutta la larghezza della finestra. */
+    min-height: 100%; /* Altezza minima pari a quella del contenitore. */
 }
 
 body {
-    min-width: 320px;
-    min-height: 100vh;
+    min-width: 320px; /* Impedisce che la pagina diventi più stretta di 320px. */
+    min-height: 100vh;  /* Il body occupa almeno tutta l'altezza visibile del browser. */
     font-family: Arial, Helvetica, sans-serif;
+    /* Creo lo sfondo usando due gradienti radiali
+    posizionati negli angoli superiori. */
     background:
         radial-gradient(
-            circle at top left,
-            rgba(24, 212, 239, 0.08),
+            circle at top left, /* Gradiente nell'angolo in alto a sinistra. */
+            rgba(24, 212, 239, 0.08), /* Colore azzurro trasparente. */
             transparent 35%
         ),
         radial-gradient(
-            circle at top right,
-            rgba(247, 53, 102, 0.08),
+            circle at top right, /* Gradiente nell'angolo in alto a destra. */
+            rgba(247, 53, 102, 0.08), /* Colore rosa trasparente. */
             transparent 35%
         ),
-        #080f1d;
-    color: white;
+        #080f1d; /* Colore scuro di base dello sfondo. */
+    color: white; /* Colore predef. del testo. */
 }
 
 /* CONTENITORE REACT */
 #root {
-    width: 100%;
+    width: 100%; /* Deve occupare tutta la larghezza disponibile. */
 }
 
 /* ELEMENTI DEL FORM */
