@@ -1,0 +1,60 @@
+/* RESPONSIVE TABLET */
+@media (max-width: 900px) {
+    /* Miniature degli sviluppatori */
+    .developers-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* Card disposte verticalmente */
+    .dev-arena {
+        grid-template-columns: 1fr;
+    }
+
+    /* Spazio intorno alla scritta VS */
+    .versus {
+        padding: 5px 0;
+    }
+}
+
+
+/* RESPONSIVE SMARTPHONE */
+@media (max-width: 600px) {
+    /* Contenitore principale */
+    .main-container {
+        width: 94%;
+        padding-top: 25px;
+    }
+
+    /* Titolo principale */
+    .main-header h1 {
+        font-size: 34px;
+    }
+
+    /* Pulsanti di selezione */
+    .selection-buttons {
+        flex-direction: column;
+    }
+
+    .selection-button {
+        width: 100%;
+    }
+
+    /* Miniature degli sviluppatori */
+    .developers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Immagine della card */
+    .dev-card-header {
+        height: 300px;
+    }
+
+    /* Risultati disposti su una colonna */
+    .results-list {
+        grid-template-columns: 1fr;
+    }
+
+    .final-result {
+        grid-column: auto;
+    }
+}

@@ -15,7 +15,7 @@ import "./styles/layout.css";
 import "./styles/selector.css";
 import "./styles/card.css";
 import "./styles/results.css";
-
+import "./styles/responsive.css";
 // -----------------------------------------------------------------------------------------------------------------------
 // 2. COMPONENTE PRINCIPALE -- 
 function App() {
@@ -34,7 +34,7 @@ function App() {
 // 4. SELEZIONE DELLO SVILUPPATORE --  Riceve lo sviluppatore cliccato e lo assegna a Dev A oppure Dev B in base al pulsante di selezione attivo.
   function selectDeveloper(dev: Dev): void {
 
-    // Dev A può essere selezionato solo se è maschio.
+  
     if (activeSelection === "A") {
       setSelectedDevA(dev);
     } else {
