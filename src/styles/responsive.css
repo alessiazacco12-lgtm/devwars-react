@@ -1,59 +1,62 @@
 /* RESPONSIVE TABLET */
+/* Le regole contenute in questa media query vengono applicate quando la larghezza dello schermo è uguale o inferiore a 900px. */
 @media (max-width: 900px) {
-    /* Miniature degli sviluppatori */
+    /* Miniature degli sviluppatori: Su tablet le sei miniature non vengono più mostrate tutte sulla stessa riga, ma vengono divise in tre colonne. */
     .developers-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    /* Card disposte verticalmente */
+    /* ARENA DEGLI SVILUPPATORI -- Le due card e la scritta VS vengono disposte una sotto l'altra in una sola colonna. */
     .dev-arena {
         grid-template-columns: 1fr;
     }
 
-    /* Spazio intorno alla scritta VS */
+   /* SCRITTA VS -- Aggiungo un po' di spazio sopra e sotto per separarla meglio dalle due card. */
     .versus {
         padding: 5px 0;
     }
 }
 
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* RESPONSIVE SMARTPHONE */
 @media (max-width: 600px) {
-    /* Contenitore principale */
+    /* Contenitore principale: su smartphone aumento leggermente la larghezza utile e riduco lo spazio superiore. */ 
     .main-container {
-        width: 94%;
-        padding-top: 25px;
+        width: 94%; /* Occupa il 94% della larghezza disponibile. */
+        padding-top: 25px; /* Riduce lo spazio sopra il contenuto. */
     }
 
-    /* Titolo principale */
+    /* TITOLO PRINCIPALE -- Riduco la dimensione del titolo per adattarlo
+    agli schermi più piccoli. */
     .main-header h1 {
         font-size: 34px;
     }
 
-    /* Pulsanti di selezione */
+    /* PULSANTI DI SELEZIONE -- I due pulsanti vengono disposti uno sotto l'altro. */
     .selection-buttons {
         flex-direction: column;
     }
-
+    /* Ogni pulsante occupa tutta la larghezza disponibile. */
     .selection-button {
         width: 100%;
     }
 
-    /* Miniature degli sviluppatori */
+    /* MINIATURE DEGLI SVILUPPATORI -- Su smartphone le miniature vengono mostrate su due colonne. */
     .developers-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* Immagine della card */
+    /* IMMAGINE DELLA CARD -- Mantengo un'altezza di 300px per la parte superiore della card contenente l'immagine. */
     .dev-card-header {
         height: 300px;
     }
 
-    /* Risultati disposti su una colonna */
+    /* RISULTATI DEL CONFRONTO -- I risultati vengono disposti in una sola colonna, invece delle due colonne usate su desktop. */
     .results-list {
         grid-template-columns: 1fr;
     }
-
+    /* RISULTATO FINALE -- Su desktop occupava entrambe le colonne. Su smartphone la griglia ha una sola colonna, quindi ripristino il posizionamento automatico. */
     .final-result {
         grid-column: auto;
     }
