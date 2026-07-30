@@ -1,20 +1,20 @@
 /* CARD DELLO SVILUPPATORE */
 .dev-card {
-    min-width: 0;
-    overflow: hidden;
+    min-width: 0; /* Permette alla card di ridursi correttamente dentro la griglia. */
+    overflow: hidden; /* Nasconde le parti che superano i bordi arrotondati. */
     background-color: #111c30;
     border: 2px solid;
     border-radius: 16px;
     transition: 0.3s;
 }
 .dev-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px); /* Quando passo il mouse sulla card, questa si sposta un pò verso l'alto. */
 }
 .dev-card-a {
-    border-color: #19d8ef;
+    border-color: #19d8ef; /* Colore azzurro Dev A. */
 }
 .dev-card-b {
-    border-color: #f73566;
+    border-color: #f73566; /* Colore rosa per Dev B. */
 }
 /* INTESTAZIONE DELLA CARD */
 .dev-card-header {
@@ -22,96 +22,109 @@
     position: relative;
     overflow: hidden;
 }
+/* IMG DEV */
 .dev-card-header img {
     width: 100%;
     height: 100%;
-    display: block;
+    display: block;  /* Elimina lo spazio predefinito sotto l'immagine. */
     position: absolute;
-    object-fit: cover;
+    object-fit: cover;  /* Adatta l'immagine al contenitore. Se necessario, alcune parti vengono tagliate per riempire completamente lo spazio disponibile. */
 }
+/* GRADIENTE SOPRA IMG */ /*Lo pseudo-elemento crea una sfumatura scura
+che rende più leggibili nome e info. */
 .dev-card-header::after {
     content: "";
     position: absolute;
     inset: 0;
+     /* La parte inferiore è più scura, mentre quella superiore è quasi trasparente. */
     background: linear-gradient(
         to top,rgba(5, 10, 20, 0.95), rgba(5, 10, 20, 0.05)
     );
 }
 /* BADGE DEV A E DEV B */
 .dev-badge {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    z-index: 1;
+    position: absolute; /* Permette di posizionare il badge sopra l'immagine. */
+    top: 18px; /* Dist dal bordo sup */
+    left: 18px; /* Dist dal bordo sx */
+    z-index: 1; /* Porta il badge sopra immagine e gradiente. */
     padding: 7px 12px;
     color: white;
     border-radius: 5px;
     font-size: 11px;
     font-weight: bold;
 }
+/* COLORE DEL BADGE DEV A */
 .dev-badge-a {
     background-color: #19d8ef;
 }
+/* COLORE DEL BADGE DEV B */
 .dev-badge-b {
     background-color: #f73566;
 }
 /* INFORMAZIONI PERSONALI */
 .dev-personal-info {
-    position: absolute;
-    left: 22px;
-    right: 22px;
-    bottom: 22px;
-    z-index: 1;
+    position: absolute; /* Posiziona le info sopra l'immagine. */
+    left: 22px; /* Dist. dal bordo sx. */
+    right: 22px;/* Dist. dal bordo dx. */
+    bottom: 22px; /* Dist dal bordo inf. */
+    z-index: 1; /* Porta le info sopra il gradiente. */
 }
+/* NOME COMPLETO DELLO SVILUPPATORE */
 .dev-personal-info h2 {
-    margin-bottom: 8px;
-    font-size: 27px;
+    margin-bottom: 8px; /* Spazio sotto il nome. */
+    font-size: 27px;  /* Dimensione del nome. */
 }
+/* DATA DI NASCITA E GENERE */
 .dev-personal-info p {
-    display: inline-block;
-    margin-right: 15px;
+    display: inline-block;  /* Permette di mostrare i paragrafi sulla stessa riga. */
+    margin-right: 15px; /* Spazio tra data e genere. */
     color: #c4d0df;
     font-size: 11px;
 }
-/* CONTENUTO DELLA CARD */
+/* CONTENUTO DELLA CARD: contiene medie e competenze.*/
 .dev-card-content {
     padding: 20px;
 }
-/* MEDIE */
+/* MEDIE: contiene i 3 riquadri front-end,back-end e overall.*/
 .averages {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 9px;
+    display: grid; /* Dispongo i riquadri tramite griglia. */
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /*Creo tre colonne della stessa larghezza. minmax(0, 1fr) permette alle colonne di restringersi senza superare lo spazio disponibile. */
+    gap: 9px; /* Spazio tra i tre riquadri. */
     margin-bottom: 18px;
 }
+/* SINGOLO RIQUADRO DELLA MEDIA */
 .average-box {
-    min-width: 0;
+    min-width: 0; /* Permette al riquadro di ridursi correttamente. */
     padding: 13px 7px;
     text-align: center;
     background-color: #1a2740;
     border-radius: 8px;
 }
+/* ETICHETTA DELLA MEDIA */
 .average-box span {
-    display: block;
+    display: block; /* Porta l'etichetta su una riga separata. */
     margin-bottom: 5px;
     color: #9fb0c5;
     font-size: 9px;
 }
+/* VALORE NUMERICO DELLA MEDIA */
 .average-box strong {
-    display: block;
+    display: block; /* Mostra il valore su una riga separata. */
     font-size: 19px;
 }
-/* COMPETENZE */
+/* COMPETENZE: contiene l'elenco verticale delle tecnologie. */
 .skills-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+/* SINGOLA COMPETENZA */
 .skill-item {
     padding: 12px;
     background-color: #1a2740;
     border-radius: 8px;
 }
+/* RIGA DELLE INFORMAZIONI DELLA COMPETENZA: contiene nome, tipo e valore numerico. */
 .skill-info {
     display: flex;
     justify-content: space-between;
@@ -119,18 +132,21 @@
     gap: 10px;
     margin-bottom: 8px;
 }
+/* NOME DELLA COMPETENZA */
 .skill-label {
     margin-right: 7px;
     font-size: 12px;
     font-weight: bold;
 }
+/* TIPO DELLA COMPETENZA */
 .skill-type {
     color: #9fb0c5;
     font-size: 9px;
 }
+/* VALORE NUMERICO DELLA COMPETENZA */
 .skill-value {
-    flex-shrink: 0;
-    font-size: 11px;
+    flex-shrink: 0; /* Impedisce al valore di restringersi. */
+    font-size: 11px; /* Dim. del testo. */
 }
 /* BARRA DELLA COMPETENZA */
 .skill-bar {
@@ -139,6 +155,7 @@
     background-color: #2d3b56;
     border-radius: 10px;
 }
+/* PARTE COLORATA DELLA BARRA */
 .skill-progress {
     height: 100%;
     border-radius: 10px;
