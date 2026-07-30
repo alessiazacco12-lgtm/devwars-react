@@ -84,104 +84,115 @@ function createResultItem(text: string, highlightedName: string, tone: ResultTon
     return {text, highlightedName, tone, winner, fullWidth};
 }
 // -----------------------------------------------------------------------------------------------------------------------
-// 10. RISULTATI DEL CONFRONTO -- La funzione confronta Dev A e Dev B. I confronti riguardo quindi le singole competenze condivise, media front e back end e la media complex.
-// Restituisce un array di oggetti ComparisonResultItem.
+// 10. RISULTATI DEL CONFRONTO --
+// Confronto le competenze condivise, le medie front-end, le medie back-end e la media complessiva.
 function getComparisonResults(devA: Dev, devB: Dev): ComparisonResultItem[] {
-    // Array inizialmente vuoto nel quale verranno inseriti tutti i risultati prodotti dai confronti.
-    const results: ComparisonResultItem[] = [];
+const results: ComparisonResultItem[] = [];
 
-    // CONFRONTO DELLE SINGOLE COMPETENZE -- Scorro tutte le competenze di Dev A.
-    devA.skills.forEach((skillA) => {
-        // Cerco in Dev B una competenza con la stessa label.
-        const skillB = getSkillByLabel(devB, skillA.label);
-        // Il confronto viene eseguito soltanto se Dev B possiede la stessa competenza.
-        if (skillB) {
-         // Confronto i due valori numerici.
-            const comparison = compareValues(skillA.value, skillB.value);
-            // Se vince Dev A, aggiungo il relativo risultato.
-            if (comparison === "A") {
-                results.push(
-                    createResultItem(
-                        "Se cerchi il migliore in " + skillA.label + ", scegli ", getFullname(devA), "purple", "A"));
-            }
+    // CONFRONTO DELLE SINGOLE COMPETENZE --
+ devA.skills.forEach((skillA) => {
+    const skillB = getSkillByLabel(devB, skillA.label);
+    if (skillB) {
+        const comparison = compareValues(skillA.value, skillB.value);
 
-            // Se vince Dev B, aggiungo il relativo risultato.
-            if (comparison === "B") {
-                results.push(
-                    createResultItem("Se cerchi il migliore in " + skillA.label + ", scegli ", getFullname(devB), "purple", "B"));
-            }
-
-            // Se i valori sono uguali, aggiungo un risultato di parità.
-            if (comparison === "equal") {
-                results.push(
-                    createResultItem("In " + skillA.label + " i due sviluppatori sono alla pari.", "", "purple", "equal"));
-            }
+        // Dev A ha il valore più alto.
+        if (comparison === "A") {
+            results.push(
+                createResultItem( "Se cerchi il migliore in " + skillA.label + ", scegli ", getFullname(devA), "purple", "A")
+            );
         }
-    });
+
+        // Dev B ha il valore più alto.
+        if (comparison === "B") {
+            results.push(
+                createResultItem( "Se cerchi il migliore in " + skillA.label + ", scegli ", getFullname(devB), "purple", "B")
+            );
+        }
+
+        // I due sviluppatori hanno lo stesso valore.
+        if (comparison === "equal") {
+            results.push(
+                createResultItem( "Se vuoi il migliore in " + skillA.label + ", ", "i due sviluppatori sono alla pari", "purple", "equal")
+            );
+        }
+    }
+});
 
     // CONFRONTO FRONT-END --
-    // Calcolo la media front-end di Dev A.
     const frontEndA = getAverageByType(devA, "front-end");
-    // Calcolo la media front-end di Dev B.
     const frontEndB = getAverageByType(devB, "front-end");
-    // Confronto le due medie.
-    const frontEndComparison = compareValues(frontEndA, frontEndB);
-    // Creo il risultato in base al vincitore.
+
+    const frontEndComparison = compareValues( frontEndA, frontEndB);
+
     if (frontEndComparison === "A") {
         results.push(
-            createResultItem("Per il front-end, scegli ", getFullname(devA), "green", "A"));
+            createResultItem( "Per il front-end, la scelta migliore è ", getFullname(devA), "green", "A")
+        );
     }
+
     if (frontEndComparison === "B") {
         results.push(
-            createResultItem("Per il front-end, scegli ", getFullname(devB), "green", "B"));
+            createResultItem("Per il front-end, la scelta migliore è ", getFullname(devB), "green", "B" )
+        );
     }
-    if (frontEndComparison === "equal") {
-        results.push(
-            createResultItem("Nel front-end i due sviluppatori sono alla pari.", "", "green", "equal"));
-    }
+
+   if (frontEndComparison === "equal") {
+    results.push(
+        createResultItem( "Per il front-end, ", "i due sviluppatori sono alla pari", "green","equal")
+    );
+}
 
     // CONFRONTO BACK-END --
-    // Calcolo la media back-end di Dev A.
     const backEndA = getAverageByType(devA, "back-end");
-    // Calcolo la media back-end di Dev B.
     const backEndB = getAverageByType(devB, "back-end");
-    // Confronto le due medie.
-    const backEndComparison = compareValues(backEndA, backEndB);
-    // Creo il risultato in base al vincitore.
+
+    const backEndComparison = compareValues( backEndA,backEndB);
+
     if (backEndComparison === "A") {
         results.push(
-            createResultItem("Per il back-end, scegli ", getFullname(devA), "green", "A"));
-    }
-    if (backEndComparison === "B") {
-        results.push(
-            createResultItem("Per il back-end, scegli ", getFullname(devB), "green", "B"));
-    }
-    if (backEndComparison === "equal") {
-        results.push(
-            createResultItem("Nel back-end i due sviluppatori sono alla pari.", "", "green", "equal"));
+            createResultItem( "Per il back-end, la scelta migliore è ", getFullname(devA), "green", "A")
+        );
     }
 
+    if (backEndComparison === "B") {
+        results.push(
+            createResultItem( "Per il back-end, la scelta migliore è ", getFullname(devB), "green", "B")
+        );
+    }
+    if (backEndComparison === "equal") {
+    results.push(
+        createResultItem( "Per il back-end, ", "i due sviluppatori sono alla pari", "green", "equal")
+    );
+}
+    
+
     // CONFRONTO COMPLESSIVO --
-    // Calcolo la media generale di Dev A.
     const overallA = getOverallAverage(devA);
-    // Calcolo la media generale di Dev B.
     const overallB = getOverallAverage(devB);
-     // Confronto le due medie complessive.
-    const overallComparison = compareValues(overallA, overallB);
-    // Il risultato complessivo usa il tono giallo e fullWidth impostato a true.
+
+    const overallComparison = compareValues(
+        overallA,
+        overallB
+    );
+
     if (overallComparison === "A") {
         results.push(
-            createResultItem("Complessivamente, scegli ", getFullname(devA), "yellow", "A", true));
+            createResultItem( "Complessivamente, lo sviluppatore più completo è ", getFullname(devA), "yellow", "A", true)
+        );
     }
+
     if (overallComparison === "B") {
         results.push(
-            createResultItem("Complessivamente, scegli ", getFullname(devB), "yellow", "B", true));
+            createResultItem( "Complessivamente, lo sviluppatore più completo è ", getFullname(devB), "yellow", "B", true)
+        );
     }
     if (overallComparison === "equal") {
-        results.push(
-            createResultItem("Complessivamente, i due sviluppatori sono alla pari.", "", "yellow", "equal", true));
-    }
-    // Restituisco l'array completo dei risultati.
+    results.push(
+        createResultItem( "Complessivamente, ", "i due sviluppatori sono alla pari", "yellow","equal", true)
+    );
+}
+   
+
     return results;
 }
 // -----------------------------------------------------------------------------------------------------------------------
