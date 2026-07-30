@@ -40,7 +40,7 @@ function getWinnerClass(result: ComparisonResultItem): string {
         return "winner-name winner-b";
     }
     // In caso di parità non viene aggiunto nessun colore specifico.
-    return "winner-name";
+    return "winner-name winner-equal";
 }
 
 // -----------------------------------------------------------------------------------------------------------------------
@@ -62,19 +62,14 @@ function ComparisonResults({ devA, devB }: ComparisonResultsProps) {
                     return (
                         <p key={index} // key permette a React di riconoscere
                             // ogni elemento creato con map.
-                        className={getResultClass(result)}>  //Le classi CSS vengono costruite dalla funzione getResultClass.
+                        className={getResultClass(result)}> 
                         
                             {/* Mostra la parte iniziale della frase. */}
                             {result.text}
 
-                            {/* Controllo se highlightedName contiene effettivamente un nome. Se il nome è presente, mostro uno span con il nome evidenziato. Se il nome non è presente, non mostro nulla. */}
-                            {result.highlightedName !== "" ? (
                                 <span className={getWinnerClass(result)}>
                                     {result.highlightedName}
-                                </span>
-                            ) : ""}
-                            {/* Aggiunge il punto solo se è presente un nome. */}
-                            {result.highlightedName !== "" ? "." : ""}</p>
+                                </span>.</p>
                     );
                 })}
             </div>
