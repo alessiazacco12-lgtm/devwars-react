@@ -10,8 +10,8 @@ import { getFullname, formatBirthDate, getGenderText, getAverageByType, getOvera
 // -----------------------------------------------------------------------------------------------------------------------
 // 2. TIPO DELLE PROPS -- Definisco i dati ricevuti dal componente DevCard.
 type DevCardProps = {
-    dev: Dev;
-    side: SelectionSide;
+    dev: Dev; // Dati dello sviluppatore.
+    side: SelectionSide; // Indica se la card è A oppure B.
 };
 
 // -----------------------------------------------------------------------------------------------------------------------
@@ -20,19 +20,24 @@ function DevCard({ dev, side }: DevCardProps) {
 
     // Calcolo la media delle competenze front-end.
     const frontEndAverage = getAverageByType(dev, "front-end");
+
     // Calcolo la media delle competenze back-end.
     const backEndAverage = getAverageByType(dev, "back-end");
+
     // Calcolo la media complessiva di tutte le competenze.
     const overallAverage = getOverallAverage(dev);
+
     // Restituisco la card completa dello sviluppatore.
     return (
         <article className={"dev-card dev-card-" + side.toLowerCase()}>
-            {/* Parte sup con immagine e dati personali. */}
+
+            {/* Parte sup con immagine, badge e dati personali. */}
             <header className="dev-card-header">
+
                 {/* Immagine dello sviluppatore. */}
                 <img src={dev.imageUrl} alt={getFullname(dev)} />
 
-                {/* Etichetta DEV A oppure DEV B. */}
+                {/* Badge DEV A oppure DEV B. La classe cambia in base al lato della card. */}
                 <span className={
                     "dev-badge dev-badge-" + side.toLowerCase()
                 }>DEV {side}</span>
@@ -69,13 +74,15 @@ function DevCard({ dev, side }: DevCardProps) {
                 {/* Elenco delle competenze dello sviluppatore. */}
                 <section className="skills-list">
 
-                    {/* Scorre l'array delle competenze. */}
+                    {/* map scorre tutte le competenze. */}
                     {dev.skills.map((skill) => {
+
                         // Per ogni competenza crea un componente SkillBar.
-                        return (<SkillBar
-                            // Key combina id e nome della competenza.
+                        return (
+                        <SkillBar
+                            // Key identifica ogni competenza.
                             key={dev.id + "-" + skill.label}
-                            // Passa la competenza corrente.
+                            // Passa la competenza corrente al componente.
                             skill={skill} />
                         );
                     })}
