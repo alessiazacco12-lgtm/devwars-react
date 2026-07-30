@@ -16,7 +16,7 @@ import "./styles/selector.css";
 import "./styles/card.css";
 import "./styles/results.css";
 import "./styles/responsive.css";
-// -----------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // 2. COMPONENTE PRINCIPALE -- 
 function App() {
 
@@ -29,19 +29,21 @@ function App() {
   // Indica se l'utente sta selezioando il Dev A oppure il Dev B.
   const [activeSelection, setActiveSelection] = useState<SelectionSide>("A");
 
-  // -----------------------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // 4. SELEZIONE DELLO SVILUPPATORE --  Riceve lo sviluppatore cliccato e lo assegna a Dev A oppure Dev B in base al pulsante di selezione attivo.
   function selectDeveloper(dev: Dev): void {
 
-  
+    // Controllo se l'utente sta selezionando il Dev A.
     if (activeSelection === "A") {
+    // Aggiorno selectedDevA con lo sviluppatore cliccato. La card di sinistra mostrerà quindi i dati del nuovo Dev A.
       setSelectedDevA(dev);
     } else {
+    // Se activeSelection non è "A", allora è "B". Aggiorno selectedDevB con lo sviluppatore cliccato. La card di destra mostrerà quindi i dati del nuovo Dev B.
       setSelectedDevB(dev);
     }
   }
-// -----------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //  5. TEMPLATE -- Restituisco la struttura principale dell'applicazione.
   return (
@@ -49,17 +51,24 @@ function App() {
 
       {/* Intestazione principale della pagina. */}
       <header className="main-header">
+      {/* Lo span permette di assegnare un colore diverso alla parola DEV. */}
         <h1> <span>DEV</span>WARS</h1>
         <p> Seleziona due sviluppatori, confronta le loro competenze e scopri quale scegliere per il tuo progetto.</p>
       </header>
 
-      {/* Sezione per scegliere Dev A e Dev B. */}
+      {/* Mostra i pulsanti Dev A e Dev B e le miniature dei 6 sviluppatori. */}
       <DevSelector
+      // Passo al componente l'intero array degli sviluppatori.
         developers={developers}
+      // Passo lo sviluppatore attualmente selezionato come Dev A.
         selectedDevA={selectedDevA}
+      // Passo lo sviluppatore attualmente selezionato come Dev B.
         selectedDevB={selectedDevB}
+      // Indico quale pulsante di selezione è attivo.
         activeSelection={activeSelection}
+      // Passo la funzione che permette di cambiare il lato attivo.
         setActiveSelection={setActiveSelection}
+      // Passo la funzione che assegna lo sviluppatore cliccato.  
         selectDeveloper={selectDeveloper} />
 
       {/* Arena che mostra i due sviluppatori uno accanto all'altro. */}
@@ -71,6 +80,6 @@ function App() {
   );
 }
 
-// -----------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // 6. ESPORTAZIONE -- Esporto il componente principale.
 export default App;
